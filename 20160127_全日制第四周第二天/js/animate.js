@@ -20,8 +20,8 @@
     //->getCss:设置当前元素的某一个样式属性的值
     function setCss(curEle, attr, value) {
         if (attr === "float") {
-            curEle["style"]["cssFloat"] = value;
-            curEle["style"]["styleFloat"] = value;
+            curEle["style"]["cssFloat"] = value;//ie
+            curEle["style"]["styleFloat"] = value; //火狐
             return;
         }
         if (attr === "opacity") {
