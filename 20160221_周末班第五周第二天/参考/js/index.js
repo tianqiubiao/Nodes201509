@@ -75,7 +75,7 @@ function up(e) {
         off(document, "mouseup", this.upFn);
     }
 
-    fly.call(this);
+    //fly.call(this);
     drop.call(this);
 }
 

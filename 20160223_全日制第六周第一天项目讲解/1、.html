@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica, sans-serif;
+            font-size: 14px;
+        }
+
+        img {
+            display: block;
+            border: none;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        .top {
+            background: #000;
+            overflow: hidden;
+        }
+
+        .top .banner {
+            position: relative;
+            margin: 0 auto;
+            width: 1280px;
+            height: 410px;
+        }
+
+        .top .banner img {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+
+        .top .banner img.show {
+            display: block;
+        }
+
+        .top .banner ul {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            margin-top: -170px;
+            padding: 5px 10px;
+            width: 218px;
+            height: 340px;
+            background: #666;
+        }
+
+        .top .banner ul li {
+            height: 30px;
+            line-height: 30px;
+            border-bottom: 1px solid #000;
+        }
+
+        .top .banner ul li.show {
+            background: #ff6600;
+        }
+
+        .top .banner ul li:hover {
+            background: #ff6600;
+        }
+
+        .center {
+            margin: 20px auto;
+            width: 1280px;
+        }
+
+        .center ul {
+            width: 600px;
+            overflow: hidden;
+        }
+
+        .center ul li {
+            position: relative;
+            float: left;
+            margin: 0 0 15px 20px;
+            width: 180px;
+            height: 100px;
+            overflow: hidden;
+        }
+
+        .center ul li img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+
+            -webkit-transition: all .5s linear 0s;
+            /*-moz- -ms- -o-*/
+            transition: all .5s linear 0s;
+        }
+
+        .center ul li img:hover {
+            -webkit-transform: scale(1.3);
+            transform: scale(1.3);
+        }
+
+        .center ul li div {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 180px;
+            height: 25px;
+            line-height: 25px;
+            background: #ffcccc;
+
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<div class="top">
+    <div class="banner" id="banner">
+        <img src="img/1.jpg" alt="" class="show"/>
+        <img src="img/2.jpg" alt=""/>
+        <ul>
+            <li class="show">女医明妃传：刘诗诗陷三角恋</li>
+            <li>青丘狐传说：高颜值狐仙传奇</li>
+        </ul>
+    </div>
+</div>
+
+<div class="center">
+    <ul>
+        <li>
+            <img src="img/3.jpg" alt="陈坤狂吻林心如有爱配一脸"/>
+
+            <div>陈坤狂吻林心如有爱配一脸</div>
+        </li>
+        <li>
+            <img src="img/3.jpg" alt="陈坤狂吻林心如有爱配一脸"/>
+
+            <div>陈坤狂吻林心如有爱配一脸</div>
+        </li>
+        <li>
+            <img src="img/3.jpg" alt="陈坤狂吻林心如有爱配一脸"/>
+
+            <div>陈坤狂吻林心如有爱配一脸</div>
+        </li>
+        <li>
+            <img src="img/3.jpg" alt="陈坤狂吻林心如有爱配一脸"/>
+
+            <div>陈坤狂吻林心如有爱配一脸</div>
+        </li>
+        <li>
+            <img src="img/3.jpg" alt="陈坤狂吻林心如有爱配一脸"/>
+
+            <div>陈坤狂吻林心如有爱配一脸</div>
+        </li>
+        <li>
+            <img src="img/3.jpg" alt="陈坤狂吻林心如有爱配一脸"/>
+
+            <div>陈坤狂吻林心如有爱配一脸</div>
+        </li>
+        <li>
+            <img src="img/3.jpg" alt="陈坤狂吻林心如有爱配一脸"/>
+
+            <div>陈坤狂吻林心如有爱配一脸</div>
+        </li>
+        <li>
+            <img src="img/3.jpg" alt="陈坤狂吻林心如有爱配一脸"/>
+
+            <div>陈坤狂吻林心如有爱配一脸</div>
+        </li>
+        <li>
+            <img src="img/3.jpg" alt="陈坤狂吻林心如有爱配一脸"/>
+
+            <div>陈坤狂吻林心如有爱配一脸</div>
+        </li>
+    </ul>
+
+</div>
+
+<input type="text" placeholder="请输入邮箱"/>
+
+<script type="text/javascript">
+    (function () {
+        var banner = document.getElementById("banner"), imgList = banner.getElementsByTagName("img"), titleList = banner.getElementsByTagName("li");
+
+        for (var i = 0; i < titleList.length; i++) {
+            var cur = titleList[i];
+            cur.index = i;
+            cur.onmouseover = function () {
+                this.className = "show";
+                imgList[this.index].className = "show";
+
+                for (var k = 0; k < titleList.length; k++) {
+                    if (k !== this.index) {
+                        titleList[k].className = null;
+                        imgList[k].className = null;
+                    }
+                }
+            }
+        }
+
+        var step = 0;
+        var autoTimer = window.setInterval(autoMove, 2000);
+
+        function autoMove() {
+            step++;
+            if (step >= titleList.length) {
+                step = 0;
+            }
+            titleList[step].onmouseover();
+        }
+    })();
+
+
+</script>
+</body>
+</html>

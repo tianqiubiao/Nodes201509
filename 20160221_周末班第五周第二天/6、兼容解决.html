@@ -66,8 +66,17 @@
     function fn3() {
         console.log(3);
     }
+
+    var n = 0;
     function fn4() {
         console.log(4);
+        n++;
+        if (n === 2) {
+            off(box, "click", fn1);
+            off(box, "click", fn2);
+            off(box, "click", fn3);
+            off(box, "click", fn4);
+        }
     }
     function fn5() {
         console.log(5);
@@ -90,17 +99,12 @@
     function fn11() {
         console.log(11);
     }
-    var n = 0;
+
     function fn12() {
-        n++;
         console.log(12);
-        if (n >= 3) {
-            off(box, "click", fn12);
-        }
     }
 
     on(box, "click", fn1);
-    off(box, "click", fn1);
     on(box, "click", fn2);
     on(box, "click", fn3);
     on(box, "click", fn4);
