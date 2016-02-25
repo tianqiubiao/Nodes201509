@@ -133,7 +133,7 @@
         _this.dropTimer = window.setInterval(function () {
             !_this["speedDrop"] ? _this["speedDrop"] = 9.8 : _this["speedDrop"] += 9.8;
             _this["speedDrop"] *= 0.98;
-            
+
             var curT = _this.offsetTop + _this["speedDrop"];
             var maxT = (document.documentElement.clientHeight || document.body.clientHeight) - _this.offsetHeight;
             if (curT >= maxT) {
